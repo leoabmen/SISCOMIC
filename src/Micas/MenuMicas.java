@@ -6,6 +6,8 @@
 package Micas;
 
 import Home.Home;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -17,17 +19,25 @@ import javax.swing.ImageIcon;
  */
 public class MenuMicas extends javax.swing.JFrame {
 
+    private Dimension dim;
+
     /**
      * Creates new form MenuMicas
      */
     public MenuMicas() {
         initComponents();
+        this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
+        float escalar = 0.5F;
+        int ancho = (int) (Toolkit.getDefaultToolkit().getScreenSize().width * escalar);
+        int alto = (int) (Toolkit.getDefaultToolkit().getScreenSize().height * escalar);
+        this.setSize(ancho, alto);
         URL url = getClass().getResource("/img/logo2.png");
         ImageIcon img = new ImageIcon(url);
         setIconImage(img.getImage());
         setLocationRelativeTo(null);
         setTitle("Inventario");
         setExtendedState(this.MAXIMIZED_BOTH);
+
     }
 
     /**
