@@ -3,8 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/GitHub/SISCOMIC/src/Home/Home.java</file>
-            <file>file:/C:/GitHub/SISCOMIC/src/Micas/MenuMicas.java</file>
+            <file>file:/C:/GITHUB/SISCOMIC/src/Business/ClientesBusiness.java</file>
+            <file>file:/C:/GITHUB/SISCOMIC/src/Entity/EntCliente.java</file>
+            <file>file:/C:/GITHUB/SISCOMIC/src/Clientes/Clientes.java</file>
+            <file>file:/C:/GITHUB/SISCOMIC/src/Data/CRUDCliente.java</file>
         </group>
     </open-files>
 </project-private>

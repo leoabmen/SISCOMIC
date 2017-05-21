@@ -7,9 +7,12 @@ package Data;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import Entity.*;
 
+import java.sql.ResultSet;
 /**
  *
  * @author Oscar
@@ -73,6 +76,36 @@ public class CRUDCliente extends Conexion{
         } catch (Exception e) {
         }
         return filAfectadas;  
+    }
+    public ArrayList<EntCliente> llenar()
+    {
+        ArrayList listaCliente=new ArrayList();
+        EntCliente ent;
+        try {
+            sp=con.prepareStatement("SELECT * FROM clientes");
+            ResultSet rs=sp.executeQuery();
+            while(rs.next())
+            {
+            ent =new EntCliente();
+            ent.setId(rs.getInt(1));
+            ent.setNombre(rs.getString(2));
+            ent.setApaterno(rs.getString(3));
+            ent.setAmaterno(rs.getString(4));
+            ent.setMail(rs.getString(5));
+            ent.setTelefono(rs.getString(6));
+            ent.setDireccion(rs.getString(7));
+            ent.setId(rs.getInt(8));
+            ent.setRfc(rs.getString(9));
+            ent.setEmpresa(rs.getString(10));
+            ent.setDescuento(rs.getBoolean(11));
+            ent.setCredito(rs.getBoolean(12));
+            listaCliente.add(ent);
+            
+            
+            }
+        } catch (Exception e) {
+        }
+    return listaCliente;
     }
     
     

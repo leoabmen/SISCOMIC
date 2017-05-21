@@ -25,6 +25,7 @@ public class Clientes extends javax.swing.JFrame {
         URL url = getClass().getResource("/Clientes/images/Cliente1.png");
         ImageIcon img = new ImageIcon(url);
         setIconImage(img.getImage());
+        setTitle("Clientes");
 //        setIconImage(Toolkit.getDefaultToolkit().getImage(this.getClass().getResource("/Clientes/images/Cliente1.png")));
     }
 
@@ -47,51 +48,149 @@ public class Clientes extends javax.swing.JFrame {
         labelProperties7 = new org.jdesktop.swingx.LabelProperties();
         labelProperties8 = new org.jdesktop.swingx.LabelProperties();
         labelProperties9 = new org.jdesktop.swingx.LabelProperties();
-        jCheckBox1 = new javax.swing.JCheckBox();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        chDescuento = new javax.swing.JCheckBox();
+        chCredito = new javax.swing.JCheckBox();
+        txtNombre = new javax.swing.JTextField();
+        txtPaterno = new javax.swing.JTextField();
+        txtMaterno = new javax.swing.JTextField();
+        txtCorreo = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
+        txtDireccion = new javax.swing.JTextField();
+        txtRfc = new javax.swing.JTextField();
+        txtEmpresa = new javax.swing.JTextField();
+        cbSexo = new org.jdesktop.swingx.JXComboBox();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tbCliente = new org.jdesktop.swingx.JXTable();
+        btnGuardar = new javax.swing.JButton();
+        btnActualizar = new javax.swing.JButton();
+        btnEliminar = new javax.swing.JButton();
+        labelProperties10 = new org.jdesktop.swingx.LabelProperties();
         lblFondo = new org.jdesktop.swingx.LabelProperties();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelProperties1.setText("Nombre");
-        getContentPane().add(labelProperties1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 140, -1, -1));
+        labelProperties1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        getContentPane().add(labelProperties1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, -1));
 
         labelProperties2.setText("Apellido Paterno");
-        getContentPane().add(labelProperties2, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 170, -1, -1));
+        labelProperties2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        getContentPane().add(labelProperties2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, -1, -1));
 
         labelProperties3.setText("Apellido Materno");
-        getContentPane().add(labelProperties3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 210, -1, -1));
+        labelProperties3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        getContentPane().add(labelProperties3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 190, -1, -1));
 
         labelProperties4.setText("E-mail");
-        getContentPane().add(labelProperties4, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 260, -1, -1));
+        labelProperties4.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        getContentPane().add(labelProperties4, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, -1, -1));
 
         labelProperties5.setText("Tel:");
-        getContentPane().add(labelProperties5, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 290, -1, -1));
+        labelProperties5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        getContentPane().add(labelProperties5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 310, -1, -1));
 
         labelProperties6.setText("Direccion");
-        getContentPane().add(labelProperties6, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 330, -1, -1));
+        labelProperties6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        getContentPane().add(labelProperties6, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, -1, -1));
 
         labelProperties7.setText("Sexo");
-        getContentPane().add(labelProperties7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 370, -1, -1));
+        labelProperties7.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        getContentPane().add(labelProperties7, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 430, -1, -1));
 
         labelProperties8.setText("RFC");
-        getContentPane().add(labelProperties8, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 400, -1, -1));
+        labelProperties8.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        getContentPane().add(labelProperties8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 490, -1, -1));
 
         labelProperties9.setText("Empresa");
-        getContentPane().add(labelProperties9, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 440, -1, -1));
+        labelProperties9.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        getContentPane().add(labelProperties9, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 550, -1, -1));
 
-        jCheckBox1.setText("jCheckBox1");
-        getContentPane().add(jCheckBox1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 490, -1, -1));
+        chDescuento.setText("Descuento");
+        getContentPane().add(chDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 630, -1, -1));
 
-        jCheckBox2.setText("jCheckBox2");
-        getContentPane().add(jCheckBox2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 490, -1, -1));
+        chCredito.setText("Credito");
+        getContentPane().add(chCredito, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 630, -1, -1));
+
+        txtNombre.setText("jTextField1");
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 100, 200, -1));
+
+        txtPaterno.setText("jTextField2");
+        getContentPane().add(txtPaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 200, -1));
+
+        txtMaterno.setText("jTextField3");
+        getContentPane().add(txtMaterno, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 220, 200, -1));
+
+        txtCorreo.setText("jTextField4");
+        getContentPane().add(txtCorreo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 200, -1));
+
+        txtTelefono.setText("jTextField5");
+        getContentPane().add(txtTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 340, 200, -1));
+
+        txtDireccion.setText("jTextField6");
+        txtDireccion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDireccionActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtDireccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 400, 200, -1));
+
+        txtRfc.setText("jTextField8");
+        getContentPane().add(txtRfc, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 520, 200, -1));
+
+        txtEmpresa.setText("jTextField9");
+        getContentPane().add(txtEmpresa, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 580, 200, 20));
+        getContentPane().add(cbSexo, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 460, 200, -1));
+
+        tbCliente.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tbCliente);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 130, 720, 300));
+
+        btnGuardar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnGuardar.setText("Guardar");
+        getContentPane().add(btnGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 540, -1, -1));
+
+        btnActualizar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnActualizar.setText("Actualizar");
+        getContentPane().add(btnActualizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 540, -1, -1));
+
+        btnEliminar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        btnEliminar.setText("Eliminar");
+        getContentPane().add(btnEliminar, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 540, -1, -1));
+
+        labelProperties10.setText("Clientes");
+        labelProperties10.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        getContentPane().add(labelProperties10, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, -1, -1));
 
         lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home/images/fondoadminmenu1.png"))); // NOI18N
         getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, -60, 1610, 840));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtDireccionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDireccionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtDireccionActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
 
     /**
      * @param args the command line arguments
@@ -129,9 +228,15 @@ public class Clientes extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox jCheckBox1;
-    private javax.swing.JCheckBox jCheckBox2;
+    public javax.swing.JButton btnActualizar;
+    public javax.swing.JButton btnEliminar;
+    public javax.swing.JButton btnGuardar;
+    public org.jdesktop.swingx.JXComboBox cbSexo;
+    public javax.swing.JCheckBox chCredito;
+    public javax.swing.JCheckBox chDescuento;
+    private javax.swing.JScrollPane jScrollPane1;
     private org.jdesktop.swingx.LabelProperties labelProperties1;
+    private org.jdesktop.swingx.LabelProperties labelProperties10;
     private org.jdesktop.swingx.LabelProperties labelProperties2;
     private org.jdesktop.swingx.LabelProperties labelProperties3;
     private org.jdesktop.swingx.LabelProperties labelProperties4;
@@ -140,6 +245,15 @@ public class Clientes extends javax.swing.JFrame {
     private org.jdesktop.swingx.LabelProperties labelProperties7;
     private org.jdesktop.swingx.LabelProperties labelProperties8;
     private org.jdesktop.swingx.LabelProperties labelProperties9;
-    private org.jdesktop.swingx.LabelProperties lblFondo;
+    public org.jdesktop.swingx.LabelProperties lblFondo;
+    public org.jdesktop.swingx.JXTable tbCliente;
+    public javax.swing.JTextField txtCorreo;
+    public javax.swing.JTextField txtDireccion;
+    public javax.swing.JTextField txtEmpresa;
+    public javax.swing.JTextField txtMaterno;
+    public javax.swing.JTextField txtNombre;
+    public javax.swing.JTextField txtPaterno;
+    public javax.swing.JTextField txtRfc;
+    public javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }
