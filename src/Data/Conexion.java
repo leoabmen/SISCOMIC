@@ -10,7 +10,7 @@ import javax.swing.JOptionPane;
 
 public class Conexion {
 
-    private final String url = "jdbc:mysql://localhost:3306/siscomic";
+    private final String url = "jdbc:mysql://localhost/siscomic";
     PreparedStatement psPrepararSentencia;
     Connection con = null;
 
@@ -19,7 +19,7 @@ public class Conexion {
 
             Class.forName("com.mysql.jdbc.Driver");
             //con = DriverManager.getConnection(url,"root","arnoediad");
-            con = DriverManager.getConnection(url, "root", "");
+            con = DriverManager.getConnection(url, "root", "leoncito");
 
             if (con != null) {
                 System.out.println("Conexión a base de datos. Listo...");
