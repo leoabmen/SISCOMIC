@@ -11,7 +11,7 @@ import Login.Login;
 import Micas.MenuMicas;
 import java.net.URL;
 import java.util.Calendar;
-import java.util.Date;
+import java.util.Date; 
 import java.util.GregorianCalendar;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -39,6 +39,8 @@ public class Home extends javax.swing.JFrame implements Runnable{
         setLocationRelativeTo(null);
         setTitle("Menú Principal");
         setExtendedState(this.MAXIMIZED_BOTH);
+        
+        
         
     }
 
