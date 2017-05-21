@@ -75,6 +75,7 @@ public class MenuMicas extends javax.swing.JFrame {
         java.awt.GridBagConstraints gridBagConstraints;
 
         AgregarMica = new javax.swing.JDialog();
+        checkerboardPainter1 = new org.jdesktop.swingx.painter.CheckerboardPainter();
         jsPanelTablaMicas = new javax.swing.JScrollPane();
         tablaMicas = new win8.swing.MetroTableUI();
         pnlTitulo = new javax.swing.JPanel();
@@ -83,6 +84,8 @@ public class MenuMicas extends javax.swing.JFrame {
         btnHome = new jc.Bolivia.ModernUI.Button.ButtonMUI();
         btnAgregar = new jc.Bolivia.ModernUI.Button.ButtonMUI();
         cboPrueba = new javax.swing.JComboBox<>();
+        buttonSeven1 = new org.edisoncor.gui.button.ButtonSeven();
+        jXMonthView1 = new org.jdesktop.swingx.JXMonthView();
         jLabel1 = new javax.swing.JLabel();
 
         javax.swing.GroupLayout AgregarMicaLayout = new javax.swing.GroupLayout(AgregarMica.getContentPane());
@@ -178,6 +181,8 @@ public class MenuMicas extends javax.swing.JFrame {
 
         cboPrueba.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        buttonSeven1.setText("buttonSeven1");
+
         javax.swing.GroupLayout panelBotonesLayout = new javax.swing.GroupLayout(panelBotones);
         panelBotones.setLayout(panelBotonesLayout);
         panelBotonesLayout.setHorizontalGroup(
@@ -189,7 +194,13 @@ public class MenuMicas extends javax.swing.JFrame {
                 .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(115, 115, 115)
                 .addComponent(cboPrueba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(829, 829, 829))
+                .addGap(160, 160, 160)
+                .addComponent(jXMonthView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(494, 494, 494))
+            .addGroup(panelBotonesLayout.createSequentialGroup()
+                .addGap(471, 471, 471)
+                .addComponent(buttonSeven1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelBotonesLayout.setVerticalGroup(
             panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,8 +211,13 @@ public class MenuMicas extends javax.swing.JFrame {
                     .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(132, 132, 132))
             .addGroup(panelBotonesLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(cboPrueba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelBotonesLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(cboPrueba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jXMonthView1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buttonSeven1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -295,9 +311,12 @@ public class MenuMicas extends javax.swing.JFrame {
     private javax.swing.JDialog AgregarMica;
     private jc.Bolivia.ModernUI.Button.ButtonMUI btnAgregar;
     private jc.Bolivia.ModernUI.Button.ButtonMUI btnHome;
+    private org.edisoncor.gui.button.ButtonSeven buttonSeven1;
     private javax.swing.JComboBox<String> cboPrueba;
+    private org.jdesktop.swingx.painter.CheckerboardPainter checkerboardPainter1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private org.jdesktop.swingx.JXMonthView jXMonthView1;
     private javax.swing.JScrollPane jsPanelTablaMicas;
     private javax.swing.JPanel panelBotones;
     private javax.swing.JPanel pnlTitulo;
