@@ -34,13 +34,15 @@ public class MenuMicas extends javax.swing.JFrame {
         // float escalar = 0.5F;
         int ancho = (int) (Toolkit.getDefaultToolkit().getScreenSize().width);
         int alto = (int) (Toolkit.getDefaultToolkit().getScreenSize().height);
-      //   this.setSize(1280, 768);
+       //    this.setSize(1280, 768);
         if (ancho <= 1280 && alto <= 780) {
             panelBotones.setPreferredSize(new Dimension(1165, 200));
             jsPanelTablaMicas.setPreferredSize(new Dimension(1165, 400));
-        }else{
-         panelBotones.setPreferredSize(new Dimension(1260, 200));
+            pnlTitulo.setPreferredSize(new Dimension(1280, 40));
+        } else {
+            panelBotones.setPreferredSize(new Dimension(1260, 200));
             jsPanelTablaMicas.setPreferredSize(new Dimension(1260, 400));
+            pnlTitulo.setPreferredSize(new Dimension(1370, 40));
         }
 
         URL url = getClass().getResource("/img/logo2.png");
@@ -48,7 +50,7 @@ public class MenuMicas extends javax.swing.JFrame {
         setIconImage(img.getImage());
         setLocationRelativeTo(null);
         setTitle("Inventario");
-       setExtendedState(this.MAXIMIZED_BOTH);
+        setExtendedState(this.MAXIMIZED_BOTH);
 
     }
 
@@ -60,10 +62,11 @@ public class MenuMicas extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
         jsPanelTablaMicas = new javax.swing.JScrollPane();
         tablaMicas = new win8.swing.MetroTableUI();
-        jPanel1 = new javax.swing.JPanel();
+        pnlTitulo = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         panelBotones = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
@@ -89,11 +92,18 @@ public class MenuMicas extends javax.swing.JFrame {
 
         getContentPane().add(jsPanelTablaMicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
 
+        pnlTitulo.setLayout(new java.awt.GridBagLayout());
+
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Inventario de Micas");
-        jPanel1.add(jLabel2);
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(5, 608, 13, 608);
+        pnlTitulo.add(jLabel2, gridBagConstraints);
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1370, 40));
+        getContentPane().add(pnlTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, 40));
 
         panelBotones.setFocusTraversalPolicyProvider(true);
 
@@ -183,9 +193,9 @@ public class MenuMicas extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jsPanelTablaMicas;
     private javax.swing.JPanel panelBotones;
+    private javax.swing.JPanel pnlTitulo;
     private win8.swing.MetroTableUI tablaMicas;
     // End of variables declaration//GEN-END:variables
 }
