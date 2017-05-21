@@ -8,10 +8,13 @@ package Home;
 
 import Business.Business;
 import Login.Login;
+import Micas.MenuMicas;
 import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -56,6 +59,7 @@ public class Home extends javax.swing.JFrame implements Runnable{
         jButton8 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         lblReloj = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -128,6 +132,14 @@ public class Home extends javax.swing.JFrame implements Runnable{
         lblReloj.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         getContentPane().add(lblReloj, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 200, 60));
 
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 140, 150, 50));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Home/images/fondoadminmenu1.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 770));
 
@@ -149,6 +161,17 @@ public class Home extends javax.swing.JFrame implements Runnable{
         }
         
     }//GEN-LAST:event_btnCerrarSesionActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        MenuMicas mc = null;
+        try {
+            mc = new MenuMicas();
+        } catch (Exception ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        mc.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -188,6 +211,7 @@ public class Home extends javax.swing.JFrame implements Runnable{
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnCerrarSesion;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
