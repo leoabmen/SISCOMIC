@@ -6,12 +6,16 @@
 package Micas;
 
 import Home.Home;
+import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Toolkit;
 import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;
+import javax.swing.JTable;
+import org.netbeans.lib.awtextra.AbsoluteLayout;
 
 /**
  *
@@ -27,16 +31,31 @@ public class MenuMicas extends javax.swing.JFrame {
     public MenuMicas() {
         initComponents();
         this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
-        float escalar = 0.5F;
-        int ancho = (int) (Toolkit.getDefaultToolkit().getScreenSize().width * escalar);
-        int alto = (int) (Toolkit.getDefaultToolkit().getScreenSize().height * escalar);
-        this.setSize(ancho, alto);
+       // float escalar = 0.5F;
+        int ancho = (int) (Toolkit.getDefaultToolkit().getScreenSize().width);
+        int alto = (int) (Toolkit.getDefaultToolkit().getScreenSize().height);
+       // this.setSize(1280, 768);
+       if (ancho <= 1280 && alto <= 780){
+            panelBotones.setPreferredSize(new Dimension(1165,200));
+            jsPanelTablaMicas.setPreferredSize(new Dimension(1165,360));
+               }
+      
+       // tablaMicas.setAutoResizeMode( JTable.AUTO_RESIZE_OFF ); 
+      // this.setLayout(new AbsoluteLayout());
+    
+//this.setLayout(new BorderLayout());
+//this.add(panelBotones, BorderLayout.CENTER);
+
+     
+        //add(panelBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 100, 100));//aqui se ponen las coordenadas
+       
+        //panelBotones.setAlignmentX(10);
         URL url = getClass().getResource("/img/logo2.png");
         ImageIcon img = new ImageIcon(url);
         setIconImage(img.getImage());
         setLocationRelativeTo(null);
         setTitle("Inventario");
-        setExtendedState(this.MAXIMIZED_BOTH);
+        //setExtendedState(this.MAXIMIZED_BOTH);
 
     }
 
@@ -49,11 +68,11 @@ public class MenuMicas extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        metroTableUI1 = new win8.swing.MetroTableUI();
+        jsPanelTablaMicas = new javax.swing.JScrollPane();
+        tablaMicas = new win8.swing.MetroTableUI();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        panelBotones = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
@@ -61,7 +80,7 @@ public class MenuMicas extends javax.swing.JFrame {
         setType(java.awt.Window.Type.POPUP);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        metroTableUI1.setModel(new javax.swing.table.DefaultTableModel(
+        tablaMicas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -72,31 +91,18 @@ public class MenuMicas extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(metroTableUI1);
+        tablaMicas.setPreferredSize(new java.awt.Dimension(1260, 360));
+        jsPanelTablaMicas.setViewportView(tablaMicas);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 1190, -1));
+        getContentPane().add(jsPanelTablaMicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 1260, 390));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Inventario de Micas");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(607, 607, 607)
-                .addComponent(jLabel2)
-                .addContainerGap(609, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jPanel1.add(jLabel2);
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, 1370, 40));
+
+        panelBotones.setFocusTraversalPolicyProvider(true);
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Micas/images/Home.png"))); // NOI18N
         jButton1.setMnemonic('M');
@@ -109,24 +115,24 @@ public class MenuMicas extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        javax.swing.GroupLayout panelBotonesLayout = new javax.swing.GroupLayout(panelBotones);
+        panelBotones.setLayout(panelBotonesLayout);
+        panelBotonesLayout.setHorizontalGroup(
+            panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBotonesLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
                 .addComponent(jButton1)
-                .addContainerGap(1076, Short.MAX_VALUE))
+                .addContainerGap(1146, Short.MAX_VALUE))
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
+        panelBotonesLayout.setVerticalGroup(
+            panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBotonesLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(140, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 1190, 200));
+        getContentPane().add(panelBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, 200));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Micas/images/homeInventario.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -185,8 +191,8 @@ public class MenuMicas extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane jScrollPane1;
-    private win8.swing.MetroTableUI metroTableUI1;
+    private javax.swing.JScrollPane jsPanelTablaMicas;
+    private javax.swing.JPanel panelBotones;
+    private win8.swing.MetroTableUI tablaMicas;
     // End of variables declaration//GEN-END:variables
 }
