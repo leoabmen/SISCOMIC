@@ -31,31 +31,24 @@ public class MenuMicas extends javax.swing.JFrame {
     public MenuMicas() {
         initComponents();
         this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
-       // float escalar = 0.5F;
+        // float escalar = 0.5F;
         int ancho = (int) (Toolkit.getDefaultToolkit().getScreenSize().width);
         int alto = (int) (Toolkit.getDefaultToolkit().getScreenSize().height);
-       // this.setSize(1280, 768);
-       if (ancho <= 1280 && alto <= 780){
-            panelBotones.setPreferredSize(new Dimension(1165,200));
-            jsPanelTablaMicas.setPreferredSize(new Dimension(1165,360));
-               }
-      
-       // tablaMicas.setAutoResizeMode( JTable.AUTO_RESIZE_OFF ); 
-      // this.setLayout(new AbsoluteLayout());
-    
-//this.setLayout(new BorderLayout());
-//this.add(panelBotones, BorderLayout.CENTER);
+      //   this.setSize(1280, 768);
+        if (ancho <= 1280 && alto <= 780) {
+            panelBotones.setPreferredSize(new Dimension(1165, 200));
+            jsPanelTablaMicas.setPreferredSize(new Dimension(1165, 400));
+        }else{
+         panelBotones.setPreferredSize(new Dimension(1260, 200));
+            jsPanelTablaMicas.setPreferredSize(new Dimension(1260, 400));
+        }
 
-     
-        //add(panelBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 100, 100));//aqui se ponen las coordenadas
-       
-        //panelBotones.setAlignmentX(10);
         URL url = getClass().getResource("/img/logo2.png");
         ImageIcon img = new ImageIcon(url);
         setIconImage(img.getImage());
         setLocationRelativeTo(null);
         setTitle("Inventario");
-        //setExtendedState(this.MAXIMIZED_BOTH);
+       setExtendedState(this.MAXIMIZED_BOTH);
 
     }
 
@@ -94,7 +87,7 @@ public class MenuMicas extends javax.swing.JFrame {
         tablaMicas.setPreferredSize(new java.awt.Dimension(1260, 360));
         jsPanelTablaMicas.setViewportView(tablaMicas);
 
-        getContentPane().add(jsPanelTablaMicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 1260, 390));
+        getContentPane().add(jsPanelTablaMicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Inventario de Micas");
@@ -132,7 +125,7 @@ public class MenuMicas extends javax.swing.JFrame {
                 .addContainerGap(140, Short.MAX_VALUE))
         );
 
-        getContentPane().add(panelBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, 200));
+        getContentPane().add(panelBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Micas/images/homeInventario.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
