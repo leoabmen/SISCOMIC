@@ -2,6 +2,7 @@ package Data;
 
 import Entity.EntTerminales;
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -15,9 +16,11 @@ import javax.swing.JOptionPane;
  */
 public class Interaccion {
 
-    Connection cn;
+    private Connection cn;
     ResultSet rs;
     Statement st;
+    PreparedStatement ps;
+    ResultSet res;
     int valor;
 
     public int ComprobarTerminales(String strSql) {
@@ -31,11 +34,41 @@ public class Interaccion {
                 valor = Integer.parseInt(rs.getString("VALOR"));
 
             }
-           new Conexion().desconectar();
+            new Conexion().desconectar();
         } catch (SQLException ex) {
             Logger.getLogger(Interaccion.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return valor;
+    }
+
+    public Object[] poblar_combox(String tabla, String nombrecol, String sql) {
+        int registros = 0;
+        try {
+            cn = new Conexion().conectado();
+            ps = cn.prepareStatement("SELECT count(*) as total FROM " + tabla);
+            res = ps.executeQuery();
+            res.next();
+            registros = res.getInt("total");
+            res.close();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+
+        Object[] datos = new Object[registros];
+        try {
+            cn = new Conexion().conectado();
+            ps = cn.prepareStatement(sql);
+            res = ps.executeQuery();
+            int i = 0;
+            while (res.next()) {
+                datos[i] = res.getObject(nombrecol);
+                i++;
+            }
+            res.close();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+        return datos;
     }
 }

@@ -10,7 +10,11 @@ import Login.Login;
 public class Consultas {
 
     String strSql;
-
+    Interaccion sen;
+     public Consultas()
+     {
+         sen = new Interaccion();
+     }
     public String ComprobarTerminales(String ventana, String peticion, String valor) {
         switch (ventana) {
             case "Login":
@@ -42,5 +46,9 @@ public class Consultas {
         }
         return strSql;
     }
+    public Object[] combox(String tabla, String campo)
+     {
+              return sen.poblar_combox(tabla, campo, "select "+campo+" from "+tabla+";");
+     }
 
 }

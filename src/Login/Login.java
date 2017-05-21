@@ -20,6 +20,7 @@ public class Login extends javax.swing.JFrame {
     Business bs;
     public static String userSession;
     Home hm;
+
     public Login() {
         initComponents();
 //         try{ 
@@ -28,11 +29,7 @@ public class Login extends javax.swing.JFrame {
 //  catch (IOException e){
 //    e.printStackTrace();
 //  }
-        URL url = getClass().getResource("/img/logo2.png");
-        ImageIcon img = new ImageIcon(url);
-        setIconImage(img.getImage());
-        setLocationRelativeTo(null);
-        setTitle("Ingresar al sistema");
+        new Business().IniciarVentanaPequeña(this, "Ingresar al sistema");
         txtUsuario.requestFocus();
         AutoCompleteDecorator.decorate(cbxSesion);
     }
@@ -57,6 +54,7 @@ public class Login extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setMaximumSize(new java.awt.Dimension(350, 410));
         setResizable(false);
         setType(java.awt.Window.Type.POPUP);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -169,14 +167,14 @@ public class Login extends javax.swing.JFrame {
                             try {
                                 Home hm = new Home();
                                 hm.setVisible(true);
-                                userSession=txtUsuario.getText().toUpperCase();
+                                userSession = txtUsuario.getText().toUpperCase();
                                 hm.lblUserSession.setText(userSession);
                                 txtUsuario.setText("");
                                 txtContraseña.setText("");
                                 cbxSesion.setSelectedIndex(0);
                                 this.dispose();
                             } catch (Exception e) {
-                                JOptionPane.showMessageDialog(this, "Ocurrio un error al cargar el menú principal "+ e);
+                                JOptionPane.showMessageDialog(this, "Ocurrio un error al cargar el menú principal " + e);
                             }
 
                         }
@@ -204,17 +202,17 @@ public class Login extends javax.swing.JFrame {
                             txtContraseña.setText("");
                             txtUsuario.requestFocus();
                         } else {
-                             try {
+                            try {
                                 Home hm = new Home();
                                 hm.setVisible(true);
-                                userSession=txtUsuario.getText().toUpperCase();
+                                userSession = txtUsuario.getText().toUpperCase();
                                 hm.lblUserSession.setText(userSession);
                                 txtUsuario.setText("");
                                 txtContraseña.setText("");
                                 cbxSesion.setSelectedIndex(0);
                                 this.dispose();
                             } catch (Exception e) {
-                                JOptionPane.showMessageDialog(this, "Ocurrio un error al cargar el menú principal "+ e);
+                                JOptionPane.showMessageDialog(this, "Ocurrio un error al cargar el menú principal " + e);
                             }
 
                         }

@@ -33,13 +33,7 @@ public class Home extends javax.swing.JFrame implements Runnable{
         initComponents();
         h1 = new Thread(this);
         h1.start();
-        URL url = getClass().getResource("/img/logo2.png");
-        ImageIcon img = new ImageIcon(url);
-        setIconImage(img.getImage());
-        setLocationRelativeTo(null);
-        setTitle("Menú Principal");
-        setExtendedState(this.MAXIMIZED_BOTH);
-        
+        new Business().IniciarVentana(this, "Menú Principal"); 
     }
 
     /**

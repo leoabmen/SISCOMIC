@@ -4,11 +4,16 @@ import Data.Consultas;
 import Data.Interaccion;
 import java.awt.Component;
 import java.awt.event.KeyEvent;
+import java.net.URL;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JComponent;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
@@ -19,6 +24,7 @@ import javax.swing.KeyStroke;
  * @author LEO
  */
 public class Business {
+     Consultas con = new Consultas();
 
     public void botonEnter(JButton boton) {
         boton.registerKeyboardAction(boton.getActionForKeyStroke(
@@ -36,7 +42,7 @@ public class Business {
         String strSql;
         Consultas cs = new Consultas();
         strSql = cs.ComprobarTerminales(ventana, peticion, valor);
-        Interaccion in = new Interaccion();
+    Interaccion in = new Interaccion();
         numero = in.ComprobarTerminales(strSql);
         return numero;
     }
@@ -73,4 +79,37 @@ public class Business {
         label.setText(hora + ":" + minutos + ":" + segundos + " " + ampm);
         return label;
     }
+    public void IniciarVentana(JFrame ventana, String nombreVentana){
+        URL url = getClass().getResource("/img/logo2.png");
+        ImageIcon img = new ImageIcon(url);
+        ventana.setIconImage(img.getImage());
+        ventana.setLocationRelativeTo(null);
+        ventana.setTitle(nombreVentana);
+        ventana.setExtendedState(ventana.MAXIMIZED_BOTH);
+    }
+     public void IniciarVentanaPequeña(JFrame ventana, String nombreVentana){
+        URL url = getClass().getResource("/img/logo2.png");
+        ImageIcon img = new ImageIcon(url);
+        ventana.setIconImage(img.getImage());
+        ventana.setLocationRelativeTo(null);
+        ventana.setTitle(nombreVentana);
+    }
+     public void IniciarDialogo(JDialog dialogo,int ancho, int alto, String nombre){
+     dialogo.setModal(true);
+        dialogo.setSize(ancho, alto);
+        dialogo.setLocationRelativeTo(null);
+        dialogo.setTitle(nombre);
+        dialogo.setVisible(true);
+     }
+     public void PoblarCombo(String tabla, String campo,JComboBox combo){
+try {
+          Object[] llenar = con.combox(tabla,campo);
+            combo.removeAllItems();
+            for (int i = 0; i < llenar.length; i++) {
+                combo.addItem((String) llenar[i]);
+            }
+        } catch (Exception ex) {
+            System.out.println(ex);
+        }
+     }
 }

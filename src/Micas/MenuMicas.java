@@ -16,6 +16,11 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JTable;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
+import Business.Business;
+import Data.Consultas;
+import java.awt.Color;
+import jc.Bolivia.ModernUI.Button.ButtonMUI;
+
 
 /**
  *
@@ -24,13 +29,16 @@ import org.netbeans.lib.awtextra.AbsoluteLayout;
 public class MenuMicas extends javax.swing.JFrame {
 
     private Dimension dim;
-
+    //private Consultas  con;
+   
+///((public Color button_pressed = new Color(0,0,0);
+////public Color texto_pressed = new Color(255, 255, 255);
     /**
      * Creates new form MenuMicas
      */
     public MenuMicas() {
         initComponents();
-        this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
+       // this.setSize(Toolkit.getDefaultToolkit().getScreenSize());
         // float escalar = 0.5F;
         int ancho = (int) (Toolkit.getDefaultToolkit().getScreenSize().width);
         int alto = (int) (Toolkit.getDefaultToolkit().getScreenSize().height);
@@ -44,14 +52,16 @@ public class MenuMicas extends javax.swing.JFrame {
             jsPanelTablaMicas.setPreferredSize(new Dimension(1260, 400));
             pnlTitulo.setPreferredSize(new Dimension(1370, 40));
         }
+          
 
-        URL url = getClass().getResource("/img/logo2.png");
-        ImageIcon img = new ImageIcon(url);
-        setIconImage(img.getImage());
-        setLocationRelativeTo(null);
-        setTitle("Inventario");
-        setExtendedState(this.MAXIMIZED_BOTH);
-
+         
+        
+        Business bs = new Business();
+        bs.PoblarCombo("sexo", "sexo_desc", cboPrueba);
+        bs.IniciarVentana(this, "Inventario");
+       
+     
+        //bs.PoblarCombo("sexo", "sexo_desc", cboPrueba);
     }
 
     /**
@@ -64,13 +74,27 @@ public class MenuMicas extends javax.swing.JFrame {
     private void initComponents() {
         java.awt.GridBagConstraints gridBagConstraints;
 
+        AgregarMica = new javax.swing.JDialog();
         jsPanelTablaMicas = new javax.swing.JScrollPane();
         tablaMicas = new win8.swing.MetroTableUI();
         pnlTitulo = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         panelBotones = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        btnHome = new jc.Bolivia.ModernUI.Button.ButtonMUI();
+        btnAgregar = new jc.Bolivia.ModernUI.Button.ButtonMUI();
+        cboPrueba = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
+
+        javax.swing.GroupLayout AgregarMicaLayout = new javax.swing.GroupLayout(AgregarMica.getContentPane());
+        AgregarMica.getContentPane().setLayout(AgregarMicaLayout);
+        AgregarMicaLayout.setHorizontalGroup(
+            AgregarMicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        AgregarMicaLayout.setVerticalGroup(
+            AgregarMicaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setType(java.awt.Window.Type.POPUP);
@@ -92,6 +116,7 @@ public class MenuMicas extends javax.swing.JFrame {
 
         getContentPane().add(jsPanelTablaMicas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
 
+        pnlTitulo.setBackground(new java.awt.Color(255, 255, 255));
         pnlTitulo.setLayout(new java.awt.GridBagLayout());
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -105,34 +130,79 @@ public class MenuMicas extends javax.swing.JFrame {
 
         getContentPane().add(pnlTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 20, -1, 40));
 
+        panelBotones.setBackground(new java.awt.Color(255, 255, 255));
         panelBotones.setFocusTraversalPolicyProvider(true);
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Micas/images/Home.png"))); // NOI18N
-        jButton1.setMnemonic('M');
-        jButton1.setText("Menú");
-        jButton1.setToolTipText("Regresar al menú");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Micas/images/Home.png"))); // NOI18N
+        btnHome.setMnemonic('M');
+        btnHome.setText("Menú");
+        btnHome.setToolTipText("Ir a Menú");
+        btnHome.setDefaultCapable(false);
+        btnHome.setDoubleBuffered(true);
+        btnHome.setFocusPainted(false);
+        btnHome.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnHome.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Micas/images/HomeB.png"))); // NOI18N
+        btnHome.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnHomeActionPerformed(evt);
             }
         });
+        btnHome.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnHomeKeyPressed(evt);
+            }
+        });
+
+        btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Micas/images/add.png"))); // NOI18N
+        btnAgregar.setMnemonic('A');
+        btnAgregar.setText("Agregar");
+        btnAgregar.setToolTipText("Ingresar Nuevo Registro de Mica");
+        btnAgregar.setDoubleBuffered(true);
+        btnAgregar.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnAgregar.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        btnAgregar.setIconTextGap(8);
+        btnAgregar.setPressedIcon(new javax.swing.ImageIcon(getClass().getResource("/Micas/images/addB.png"))); // NOI18N
+        btnAgregar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarActionPerformed(evt);
+            }
+        });
+        btnAgregar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnAgregarKeyPressed(evt);
+            }
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                btnAgregarKeyTyped(evt);
+            }
+        });
+
+        cboPrueba.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout panelBotonesLayout = new javax.swing.GroupLayout(panelBotones);
         panelBotones.setLayout(panelBotonesLayout);
         panelBotonesLayout.setHorizontalGroup(
             panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBotonesLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jButton1)
-                .addContainerGap(1146, Short.MAX_VALUE))
+                .addContainerGap(27, Short.MAX_VALUE)
+                .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(115, 115, 115)
+                .addComponent(cboPrueba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(829, 829, 829))
         );
         panelBotonesLayout.setVerticalGroup(
             panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBotonesLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(140, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addGroup(panelBotonesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnHome, javax.swing.GroupLayout.PREFERRED_SIZE, 33, Short.MAX_VALUE)
+                    .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(132, 132, 132))
+            .addGroup(panelBotonesLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(cboPrueba, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(panelBotones, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, -1, -1));
@@ -143,7 +213,8 @@ public class MenuMicas extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
+     //  this.requestFocus();
         Home hm = null;
         try {
             hm = new Home();
@@ -152,7 +223,38 @@ public class MenuMicas extends javax.swing.JFrame {
         }
         hm.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+        this.setFocusable(true);
+    }//GEN-LAST:event_btnHomeActionPerformed
+
+    private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
+        new Business().IniciarDialogo(AgregarMica,700,400,"Agregar Micas");
+    }//GEN-LAST:event_btnAgregarActionPerformed
+
+    private void btnHomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnHomeKeyPressed
+        
+    }//GEN-LAST:event_btnHomeKeyPressed
+
+    private void btnAgregarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnAgregarKeyPressed
+//       char car=(char) evt.getKeyCode();
+//      if(car==evt.VK_A && evt.isAltDown()){
+//   ButtonTeclado btn = new ButtonTeclado();
+//   btn.keyPressed(evt);
+//   System.out.println("hola");
+   
+    //o bien puedes colocar algún método que tengas.
+//}
+
+    }//GEN-LAST:event_btnAgregarKeyPressed
+
+    private void btnAgregarKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnAgregarKeyTyped
+        try {
+            
+            new Business().botonEnter(btnAgregar);
+           //  this.setBackground(button_pressed);
+      //  this.setForeground(texto_pressed);
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_btnAgregarKeyTyped
 
     /**
      * @param args the command line arguments
@@ -190,7 +292,10 @@ public class MenuMicas extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JDialog AgregarMica;
+    private jc.Bolivia.ModernUI.Button.ButtonMUI btnAgregar;
+    private jc.Bolivia.ModernUI.Button.ButtonMUI btnHome;
+    private javax.swing.JComboBox<String> cboPrueba;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jsPanelTablaMicas;
